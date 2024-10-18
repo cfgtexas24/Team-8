@@ -8,5 +8,21 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+<<<<<<< Updated upstream
   "description": ""
+=======
+<<<<<<< HEAD
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.1"
+  }
+=======
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "description": ""
+>>>>>>> bbc32afa759c6b83d5ffb80f48c974c91b3d4b78
+>>>>>>> Stashed changes
 }
