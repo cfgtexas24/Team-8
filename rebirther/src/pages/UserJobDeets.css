@@ -24,12 +24,6 @@
   margin-top: auto; /* Ensure the button stays at the bottom */
 }
 
-.apply-button {
-  --padding-start: 20px;
-  --padding-end: 20px;
-  border-radius: 5px;
-}
-
 .job-info {
   width: 50%;
   max-width: 600px;
