@@ -1,4 +1,5 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonInput, IonItem, IonCard, IonLabel, IonCardContent } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonInput, IonItem, IonCard, IonLabel, IonCardContent, IonIcon } from '@ionic/react';
+import { trash } from 'ionicons/icons';
 import React, { useState, useEffect } from 'react';
 import './Profile.css';
 
@@ -36,6 +37,11 @@ const Profile: React.FC = () => {
     }
   };
 
+  const deleteSkill = (index: number) => {
+    const updatedSkills = skills.filter((_, i) => i !== index);
+    setSkills(updatedSkills);
+  };
+
   const addExp = () => {
     if (newExp.trim() !== '') {
       setExp([...exp, newExp.trim()]);
@@ -43,11 +49,21 @@ const Profile: React.FC = () => {
     }
   };
 
+  const deleteExp = (index: number) => {
+    const updatedExp = exp.filter((_, i) => i !== index);
+    setExp(updatedExp);
+  };
+
   const addCert = () => {
     if (newCert.trim() !== '') {
       setCert([...cert, newCert.trim()]);
       setNewCert('');
     }
+  };
+
+  const deleteCert = (index: number) => {
+    const updatedCert = cert.filter((_, i) => i !== index);
+    setCert(updatedCert);
   };
 
   const saveProfile = () => {
@@ -109,6 +125,7 @@ const Profile: React.FC = () => {
               placeholder="Enter Phone Number" 
             />
           </IonCardContent>
+          
           <IonCardContent className="make-post">
             <IonItem>
               <IonLabel position="floating">Enter Skills:</IonLabel>
@@ -123,9 +140,15 @@ const Profile: React.FC = () => {
               Add New Skill
             </IonButton>
             {skills.map((skill, index) => (
-              <IonItem key={index}>{skill}</IonItem>
+              <IonItem key={index}>
+                {skill}
+                <IonButton slot="end" fill="clear" onClick={() => deleteSkill(index)}>
+                  <IonIcon icon={trash} />
+                </IonButton>
+              </IonItem>
             ))}
           </IonCardContent>
+
           <IonCardContent className="make-post">
             <IonItem>
               <IonLabel position="floating">Enter your past and current experiences:</IonLabel>
@@ -140,9 +163,15 @@ const Profile: React.FC = () => {
               Add New Experience
             </IonButton>
             {exp.map((experience, index) => (
-              <IonItem key={index}>{experience}</IonItem>
+              <IonItem key={index}>
+                {experience}
+                <IonButton slot="end" fill="clear" onClick={() => deleteExp(index)}>
+                  <IonIcon icon={trash} />
+                </IonButton>
+              </IonItem>
             ))}
           </IonCardContent>
+
           <IonCardContent className="make-post">
             <IonItem>
               <IonLabel position="floating">Enter your certifications/awards:</IonLabel>
@@ -157,9 +186,15 @@ const Profile: React.FC = () => {
               Add New Certifications
             </IonButton>
             {cert.map((certification, index) => (
-              <IonItem key={index}>{certification}</IonItem>
+              <IonItem key={index}>
+                {certification}
+                <IonButton slot="end" fill="clear" onClick={() => deleteCert(index)}>
+                  <IonIcon icon={trash} />
+                </IonButton>
+              </IonItem>
             ))}
           </IonCardContent>
+
           <IonCardContent className="make-post">
             <IonLabel>Please Upload Resume:</IonLabel>
             <input type="file" />
