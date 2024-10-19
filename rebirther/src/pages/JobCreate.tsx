@@ -7,7 +7,7 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonInp
       return (
         <IonPage>
           <IonHeader>
-            <IonToolbar color='white'>
+            <IonToolbar>
               <IonTitle>Profile</IonTitle>
             </IonToolbar>
             </IonHeader>
@@ -33,12 +33,12 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonInp
                 </IonCardContent>
                 <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
                     <div className="apply-button-container">
-                        <IonButton color="white" href="/user-job" className="apply-button" expand="block">
+                        <IonButton className="button-color" href="/user-job"  expand="block">
                         Create
                         </IonButton>
                     </div>
                     <div className="apply-button-container">
-                        <IonButton color="white" href="/user-job" className="apply-button" expand="block">
+                        <IonButton className="button-color" href="/user-job" expand="block">
                         Cancel
                         </IonButton>
                     </div>

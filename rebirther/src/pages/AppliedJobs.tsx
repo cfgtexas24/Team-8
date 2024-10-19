@@ -34,7 +34,7 @@ const AppliedJobs: React.FC = () => {
         ))}
         <div className="create-job">
           <div>
-            <IonButton color='white' slot="end" style={{ marginRight: '16px' }} href="/user-job">All Jobs</IonButton>
+            <IonButton className="button-color" slot="end" style={{ marginRight: '16px' }} href="/user-job">All Jobs</IonButton>
           </div>
         </div>
       </IonContent>
