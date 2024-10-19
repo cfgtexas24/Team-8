@@ -1,10 +1,10 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonInput, IonItem, IonCard, IonLabel, IonCardContent } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonInput, IonLabel, IonCard, IonCardContent } from '@ionic/react';
 import React, { useState, useEffect } from 'react';
 import './CompanyProfile.css';
 
 const CompanyProfile: React.FC = () => {
   const [compName, setCompName] = useState('');
-  const [missionStmt, setmissionStmt] = useState('');
+  const [missionStmt, setMissionStmt] = useState('');
   const [location, setLocation] = useState('');
 
   useEffect(() => {
@@ -13,11 +13,10 @@ const CompanyProfile: React.FC = () => {
     if (storedCompProfile) {
       const compProfile = JSON.parse(storedCompProfile);
       setCompName(compProfile.compName || '');
-      setmissionStmt(compProfile.missionStmt || '');
+      setMissionStmt(compProfile.missionStmt || '');
       setLocation(compProfile.location || '');
     }
   }, []);
-
 
   const saveProfile = () => {
     const profile = {
@@ -52,7 +51,7 @@ const CompanyProfile: React.FC = () => {
             <IonInput 
               type="text" 
               value={missionStmt} 
-              onIonChange={e => setmissionStmt(e.detail.value!)} 
+              onIonChange={e => setMissionStmt(e.detail.value!)} 
               placeholder="Enter Mission Statement" 
             />
           </IonCardContent>
