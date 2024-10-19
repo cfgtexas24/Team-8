@@ -17,6 +17,7 @@ import Profile from './pages/Profile';
 import ProfileDisplay from './pages/ProfileDisplay';
 import JobCreate from './pages/JobCreate';
 import PostedJobs from './pages/PostedJobs';
+import AdminPanel from './pages/AdminPanel';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -83,6 +84,9 @@ const App: React.FC = () => (
           </Route>
           <Route exact path="/posted-jobs">
           <PostedJobs />
+          </Route>
+          <Route exact path="/admin-panel">
+            <AdminPanel />
           </Route>
           <Route path="/job/:id" component={UserJobDeets} />
         </IonRouterOutlet>
