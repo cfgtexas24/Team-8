@@ -67,6 +67,8 @@ const App: React.FC = () => {
                 {/* Company-Specific Routes */}
                 <Route exact path="/company-profile" component={CompanyProfile} />
                 <Route exact path="/home" component={Homepage} />
+                <Route exact path="/company-job" component={PostedJobs} />
+                
               </>
             ) : (
               <>
@@ -81,6 +83,8 @@ const App: React.FC = () => {
                 <Route exact path="/AppliedJobs" component={AppliedJobs}/>
               </>
             )}
+            <Route exact path="/create-job" component={JobCreate} />
+            <Route exact path="/admin-panel" component={AdminPanel} />
           </IonRouterOutlet>
 {/*company view*/}
           <IonTabBar slot="bottom">
