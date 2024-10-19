@@ -12,7 +12,7 @@ const AppliedJobs: React.FC = () => {
 
   // Function to handle applied jobs button click
   const handleAppliedJobsClick = () => {
-    history.push('/applied-jobs'); // Navigate to applied jobs page (adjust the route as needed)
+    history.push('/AppliedJobs'); // Navigate to applied jobs page (adjust the route as needed)
   };
 
   return (
