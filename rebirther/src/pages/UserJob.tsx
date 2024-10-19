@@ -50,7 +50,7 @@ const UserJob: React.FC = () => {
               <IonButton color="white" href="/create-job">Create New Job Posting</IonButton>
           </div>
           <div>
-            <IonButton color='white' slot="end" style={{ marginRight: '16px' }} onClick = {handleAppliedJobsClick}>Applied Jobs </IonButton>
+            <IonButton className="button-color" color='white' slot="end" style={{ marginRight: '16px' }} onClick = {handleAppliedJobsClick}>Applied Jobs </IonButton>
           </div>
         </div>
       </IonContent>

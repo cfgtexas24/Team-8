@@ -1,2 +1,11 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
+:root{
+    --ion-background-color:#23518c;
+    --ion-text-color: white;
+    --ion-font-family: 'Times New Roman';
+}
+
+ion-tab-button{
+    color: white;
+}
