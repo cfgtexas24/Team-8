@@ -80,7 +80,7 @@ const App: React.FC = () => {
               </>
             )}
           </IonRouterOutlet>
-
+{/*company view*/}
           <IonTabBar slot="bottom">
             <IonTabButton tab="home" href={isCompanyView ? "/home" : "/home"}>
               <IonIcon aria-hidden="true" icon={triangle} />
