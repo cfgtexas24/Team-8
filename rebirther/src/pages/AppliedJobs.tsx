@@ -1,38 +1,42 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonLabel, IonCard, IonButton } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonLabel, IonCard, IonButton, IonCardHeader, IonCardContent } from '@ionic/react';
 import { Link, useHistory } from 'react-router-dom';
 import jobsData from '../jobs.json'; // Import your JSON file
+import './AppliedJobs.css';
 
 const AppliedJobs: React.FC = () => {
-  const history = useHistory(); // useHistory hook for navigation
-
-  // Function to handle card click
-  const handleCardClick = (jobId: number) => {
-    history.push(`/job/${jobId}`); // Navigate to job details page
-  };
-
-  // Function to handle applied jobs button click
-  const handleAppliedJobsClick = () => {
-    history.push('/applied-jobs'); // Navigate to applied jobs page (adjust the route as needed)
-  };
 
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Applied Jobs</IonTitle>
+          <IonTitle>Job Listings</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         {/* Mapping over the jobs array to display each job */}
         {jobsData.jobs.map((job) => (
+          <div className="jobs">
           <IonCard 
-            className="custom-card" 
+            className="job-card" 
             key={job.id}
-            onClick={() => handleCardClick(job.id)}  // Add onClick handler for job cards
           >
-            {job.title} at {job.company}
+            <IonCardHeader>
+                <IonTitle className="title">{job.title} at {job.company}</IonTitle>
+                </IonCardHeader>
+                <IonCardContent className="description">
+                {job.about.jobDescription}
+                </IonCardContent>
+                <div className="read-more">
+                  Status: Under Review
+                </div>
           </IonCard>
+          </div>
         ))}
+        <div className="create-job">
+          <div>
+            <IonButton color='white' slot="end" style={{ marginRight: '16px' }} href="/user-job">All Jobs</IonButton>
+          </div>
+        </div>
       </IonContent>
     </IonPage>
   );

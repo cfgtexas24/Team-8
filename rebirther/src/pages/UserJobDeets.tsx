@@ -1,8 +1,8 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLabel, IonCard, IonButton, IonCardContent } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLabel, IonCard, IonButton, IonCardContent, IonCardHeader } from '@ionic/react';
 import { useParams } from 'react-router-dom'; // Import useParams to get route parameters
 import jobsData from '../jobs.json';  // Import your JSON file
-import './UserJob.css';
+import './UserJobDeets.css';
 
 const UserJobDeets: React.FC = () => {
   const { id } = useParams<{ id: string }>(); // Get the job ID from the URL parameters
@@ -26,9 +26,71 @@ const UserJobDeets: React.FC = () => {
           <IonTitle className="job-details-title">{job.title} at {job.company}</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonCard className="job-details-card">
+      <IonContent fullscreen >
+        <div className="jobs">
+        <IonCard className="job-info" key={job.id}>
+          <IonCardHeader className="post-header">
+            <IonTitle className="title">
+              {job.title} at {job.company}
+            </IonTitle>
+          </IonCardHeader>
+
           <IonCardContent className="job-details-content">
+            <div className="section">
+              <h2 className="section-title">Company Overview</h2>
+              <p>{job.about.companyOverview}</p>
+            </div>
+
+            <div className="section">
+              <h2 className="section-title">Job Description</h2>
+              <p>{job.about.jobDescription}</p>
+            </div>
+
+            <div className="section">
+              <h2 className="section-title">Benefits</h2>
+              <p>{job.benefits}</p>
+            </div>
+
+            <div className="section">
+              <h2 className="section-title">Required Qualifications</h2>
+              <p>{job.qualifications.required}</p>
+            </div>
+
+            <div className="section">
+              <h2 className="section-title">Preferred Qualifications</h2>
+              <p>{job.qualifications.preferred}</p>
+            </div>
+
+            <div className="section">
+              <h2 className="section-title">Education</h2>
+              <p>{job.education}</p>
+            </div>
+          </IonCardContent>
+
+          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
+            <div className="apply-button-container">
+              <IonButton color="white" href="/user-job" className="apply-button" expand="block">
+                Apply Now
+              </IonButton>
+            </div>
+            <div className="apply-button-container">
+              <IonButton color="white" href="/user-job" className="apply-button" expand="block">
+                Cancel
+              </IonButton>
+            </div>
+          </div>
+        </IonCard>
+
+
+        </div>
+      </IonContent>
+    </IonPage>
+  );
+};
+export default UserJobDeets;
+
+
+{/* <IonCardContent className="job-details-content">
             <h2>About the Job</h2>
             <p>{job.about.jobDescription}</p>
             <h3>Company Overview</h3>
@@ -57,10 +119,4 @@ const UserJobDeets: React.FC = () => {
                 Apply Now
               </IonButton>
             </div>
-          </IonCardContent>
-        </IonCard>
-      </IonContent>
-    </IonPage>
-  );
-};
-export default UserJobDeets;
+          </IonCardContent> */}
