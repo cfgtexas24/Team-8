@@ -1,11 +1,40 @@
 /* UserJob.css */
-.custom-card {
-    border: 2px solid #3880ff; /* Add border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
-    border-radius: 10px; /* Rounded corners */
-    margin: 10px; /* Spacing around the card */
-    padding: 30px; /* Inner padding */
-    background-color: #f9f9f9; /* Background color */
-    color: #333; /* Text color */
-  }
+.jobs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.job-card {
+  width: 50%;
+  border: 2px solid #3880ff; /* Add border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+  border-radius: 10px; /* Rounded corners */
+  margin: 10px; /* Spacing around the card */
+  padding: 30px; /* Inner padding */
+  background-color: #f9f9f9; /* Background color */
+  color: #333; /* Text color */
+}
+
+.title {
+  margin-left: -1%;
+}
+
+.read-more {
+  display: flex;
+  justify-content: flex-end; /* Moves content to the far right */
+}
+
+.create-job {
+  position: absolute; /* Allow positioning relative to the screen */
+  top: 60px; /* Adjust vertical position as needed */
+  right: 10px; /* Align to the right edge with some padding */
+}
   
+
+@media only screen and (max-width: 600px) {
+  .job-card {
+      width: 90%;
+  }
+}

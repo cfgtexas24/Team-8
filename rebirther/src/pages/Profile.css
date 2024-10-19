@@ -1,0 +1,17 @@
+
+.button-color{
+    --background: #ffc00d;
+    font-family: 'Times New Roman';
+}
+
+.spacing{
+    margin: 10px;
+}
+
+.bg-color{
+    --background: white;
+    font-family: 'Times New Roman';
+    font-size: 16px;
+    color: black;
+}
+

@@ -1,6 +1,8 @@
+
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonInput, IonItem, IonCard, IonLabel, IonList } from '@ionic/react';
 import React, { useState, useEffect } from 'react';
 import './Profile.css';
+import React, {useState} from 'react';
 
 const Profile: React.FC = () => {
   const [firstName, setFirstName] = useState('');
@@ -63,12 +65,11 @@ const Profile: React.FC = () => {
       setNewCert('');
     }
   };
-
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Profile</IonTitle>
+          <IonTitle className="title-color">Profile</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen className="profile">
