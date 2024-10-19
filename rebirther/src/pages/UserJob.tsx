@@ -1,5 +1,6 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import React from 'react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonCard } from '@ionic/react';
+import jobsData from '../jobs.json';  // Import your JSON file
 import './UserJob.css';
 
 const UserJob: React.FC = () => {
@@ -7,7 +8,7 @@ const UserJob: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>UserJob</IonTitle>
+          <IonTitle>User Job</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
@@ -16,7 +17,14 @@ const UserJob: React.FC = () => {
             <IonTitle size="large">UserJob</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="UserJob page" />
+        
+        {/* Mapping over the jobs array to display buttons for each job */}
+        {jobsData.jobs.map((job, index) => (
+          <IonCard className = "custom-card" key={index}>
+            {job.title} at {job.company}
+          </IonCard>
+        ))}
+
       </IonContent>
     </IonPage>
   );
