@@ -14,6 +14,7 @@ const Profile: React.FC = () => {
   const [exp, setExp] = useState<string[]>([]);
   const [newCert, setNewCert] = useState<string>('');
   const [cert, setCert] = useState<string[]>([]);
+  const [headshot, setHeadshot] = useState<string | null>(null);
 
   useEffect(() => {
     // Load profile data from local storage when component mounts
@@ -80,6 +81,18 @@ const Profile: React.FC = () => {
     alert('Profile saved successfully!');
   };
 
+  const handleHeadshotUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setHeadshot(reader.result as string);
+        localStorage.setItem('headshot', reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <IonPage>
       <IonHeader>
@@ -91,38 +104,38 @@ const Profile: React.FC = () => {
         <IonCard className="post">
           <IonCardContent className="make-post">
             <IonLabel>First Name:</IonLabel>
-            <IonInput 
-              type="text" 
-              value={firstName} 
-              onIonChange={e => setFirstName(e.detail.value!)} 
-              placeholder="Enter First Name" 
+            <IonInput
+              type="text"
+              value={firstName}
+              onIonChange={e => setFirstName(e.detail.value!)}
+              placeholder="Enter First Name"
             />
           </IonCardContent>
           <IonCardContent className="make-post">
             <IonLabel>Last Name:</IonLabel>
-            <IonInput 
-              type="text" 
-              value={lastName} 
-              onIonChange={e => setLastName(e.detail.value!)} 
-              placeholder="Enter Last Name" 
+            <IonInput
+              type="text"
+              value={lastName}
+              onIonChange={e => setLastName(e.detail.value!)}
+              placeholder="Enter Last Name"
             />
           </IonCardContent>
           <IonCardContent className="make-post">
             <IonLabel>Age:</IonLabel>
-            <IonInput 
-              type="number" 
-              value={age} 
-              onIonChange={e => setAge(e.detail.value!)} 
-              placeholder="Enter Age" 
+            <IonInput
+              type="number"
+              value={age}
+              onIonChange={e => setAge(e.detail.value!)}
+              placeholder="Enter Age"
             />
           </IonCardContent>
           <IonCardContent className="make-post">
             <IonLabel>Phone Number:</IonLabel>
-            <IonInput 
-              type="tel" 
-              value={phoneNumber} 
-              onIonChange={e => setPhoneNumber(e.detail.value!)} 
-              placeholder="Enter Phone Number" 
+            <IonInput
+              type="tel"
+              value={phoneNumber}
+              onIonChange={e => setPhoneNumber(e.detail.value!)}
+              placeholder="Enter Phone Number"
             />
           </IonCardContent>
           
@@ -198,6 +211,10 @@ const Profile: React.FC = () => {
           <IonCardContent className="make-post">
             <IonLabel>Please Upload Resume:</IonLabel>
             <input type="file" />
+          </IonCardContent>
+          <IonCardContent className="make-post">
+            <IonLabel>Please Upload Headshot:</IonLabel>
+            <input type="file" onChange={handleHeadshotUpload} />
           </IonCardContent>
           <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
             <IonButton className="button-color" onClick={saveProfile} expand="block">

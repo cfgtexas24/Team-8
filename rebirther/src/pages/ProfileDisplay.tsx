@@ -8,7 +8,8 @@ import {
   IonButton,
   IonCard,
   IonCardContent,
-  IonAvatar
+  IonAvatar,
+  IonText
 } from '@ionic/react';
 import './ProfileDisplay.css';
 
@@ -24,11 +25,18 @@ interface UserProfile {
 
 const ProfileDisplay: React.FC = () => {
   const [profile, setProfile] = useState<UserProfile | null>(null);
+  const [headshot, setHeadshot] = useState<string | null>(null);
 
   useEffect(() => {
     const storedProfile = localStorage.getItem('userProfile');
+    const storedHeadshot = localStorage.getItem('headshot');
+    
     if (storedProfile) {
       setProfile(JSON.parse(storedProfile));
+    }
+    
+    if (storedHeadshot) {
+      setHeadshot(storedHeadshot);
     }
   }, []);
 
@@ -48,7 +56,11 @@ const ProfileDisplay: React.FC = () => {
         <div className="profile-container">
           <div className="photo-container">
             <IonAvatar className="profile-photo">
-              <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+              {headshot ? (
+                <img alt="User's headshot" src={headshot} />
+              ) : (
+                <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+              )}
             </IonAvatar>
           </div>
           <div className="right-field">
@@ -71,7 +83,7 @@ const ProfileDisplay: React.FC = () => {
             <IonCard className="field">
               <IonCardContent className="description">
                 <h2>Skills: </h2>
-                {profile.skills.join(', ')}
+                <IonText>{profile.skills.join(', ')}</IonText>
               </IonCardContent>
             </IonCard>
           </div>
@@ -91,7 +103,7 @@ const ProfileDisplay: React.FC = () => {
             <IonCard className="field">
               <IonCardContent className="description">
                 <h2>Certifications: </h2>
-                {profile.certifications.join(', ')}
+                <IonText>{profile.certifications.join(', ')}</IonText>
               </IonCardContent>
             </IonCard>
           </div>
