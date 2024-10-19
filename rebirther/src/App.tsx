@@ -70,6 +70,7 @@ const App: React.FC = () => {
                 <Route exact path="/company-profile" component={CompanyProfileDisplay} />
                 <Route exact path="/home" component={Homepage} />
                 <Route exact path="/company-job" component={PostedJobs} />
+                <Route exact path="/contacts" component={ChatComponent}/>
                 
               </>
             ) : (
@@ -83,6 +84,7 @@ const App: React.FC = () => {
                 <Route exact path="/user-job" component={UserJob} />
                 <Route exact path="/job/:id" component={UserJobDeets} />
                 <Route exact path="/AppliedJobs" component={AppliedJobs}/>
+                <Route exact path="/contacts" component={ChatComponent}/>
               </>
             )}
             <Route exact path="/company-profile-edit" component={CompanyProfile} />
@@ -102,6 +104,10 @@ const App: React.FC = () => {
             <IonTabButton tab="profile" href={isCompanyView ? "/company-profile" : "/profile"}>
               <IonIcon aria-hidden="true" icon={square} />
               <IonLabel>{isCompanyView ? "Company Profile" : "Profile"}</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="contacts" href={isCompanyView ? "/contacts" : "/contacts"}>
+              <IonIcon aria-hidden="true" icon={square} />
+              <IonLabel>{isCompanyView ? "Contacts" : "Contacts"}</IonLabel>
             </IonTabButton>
             <IonTabButton tab="switch" onClick={isCompanyView ? switchToUser : switchToCompany}>
               <IonIcon aria-hidden="true" icon={square} />
