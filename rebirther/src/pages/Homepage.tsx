@@ -10,6 +10,7 @@ const Homepage: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonTitle className="header">Home</IonTitle>
+          <IonButton className="button-color" href="/admin-panel"  slot="end" style={{ marginRight: '16px' }} >Show Admin Panel</IonButton>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
