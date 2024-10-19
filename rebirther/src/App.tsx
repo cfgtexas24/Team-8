@@ -10,7 +10,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { ellipse, square, triangle, home, chatbox, briefcase, person } from 'ionicons/icons';
 import Homepage from './pages/Homepage';
 import UserJob from './pages/UserJob';
 import Profile from './pages/Profile';
@@ -94,19 +94,19 @@ const App: React.FC = () => {
 {/*company view*/}
           <IonTabBar slot="bottom">
             <IonTabButton tab="home" href={isCompanyView ? "/home" : "/home"}>
-              <IonIcon aria-hidden="true" icon={triangle} />
+              <IonIcon aria-hidden="true" icon={home} />
               <IonLabel>{isCompanyView ? "Company Home" : "User Home"}</IonLabel>
             </IonTabButton>
             <IonTabButton tab="user-job" href={isCompanyView ? "/company-job" : "/user-job"}>
-              <IonIcon aria-hidden="true" icon={ellipse} />
+              <IonIcon aria-hidden="true" icon={briefcase} />
               <IonLabel>{isCompanyView ? "Manage Jobs" : "Jobs"}</IonLabel>
             </IonTabButton>
             <IonTabButton tab="profile" href={isCompanyView ? "/company-profile" : "/profile"}>
-              <IonIcon aria-hidden="true" icon={square} />
+              <IonIcon aria-hidden="true" icon={person} />
               <IonLabel>{isCompanyView ? "Company Profile" : "Profile"}</IonLabel>
             </IonTabButton>
             <IonTabButton tab="contacts" href={isCompanyView ? "/contacts" : "/contacts"}>
-              <IonIcon aria-hidden="true" icon={square} />
+              <IonIcon aria-hidden="true" icon={chatbox} />
               <IonLabel>{isCompanyView ? "Contacts" : "Contacts"}</IonLabel>
             </IonTabButton>
             <IonTabButton tab="switch" onClick={isCompanyView ? switchToUser : switchToCompany}>
