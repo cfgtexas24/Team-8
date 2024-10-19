@@ -51,3 +51,40 @@
       width: 90%;
   }
 }
+
+.text {
+  color: black;
+}
+
+.tailored-resume {
+  color: black;
+}
+
+.submit-resume {
+  border-radius: 30px;
+}
+
+.submit-button{
+  color: black;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Full height of the modal */
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  color: black;
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: center; /* Center horizontally */
+  gap: 16px; /* Space between buttons */
+  margin-top: 24px; /* Push down from the title */
+}
