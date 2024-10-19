@@ -73,6 +73,31 @@ const UserJobDeets: React.FC = () => {
     }
   };
 
+
+  const handleSubmit = (resumeType: string) => {
+    const applicationInfo = {
+      jobId: job.id,
+      jobTitle: job.title,
+      resumeType,
+      companyName: job.company,
+      applicationDate: new Date().toISOString(),
+      jobDescription: job.about.jobDescription,
+      jobOverview: job.about.companyOverview,
+      jobBenefits: job.benefits,
+      jobQualificationsReq: job.qualifications.required,
+      jobQualificationsPref: job.qualifications.preferred,
+      jobEducation: job.education,
+
+    };
+    console.log('Application info:', applicationInfo);
+
+    const appliedJobs = JSON.parse(localStorage.getItem('appliedJobs') || '[]');
+    appliedJobs.push(applicationInfo);
+    localStorage.setItem('appliedJobs', JSON.stringify(appliedJobs));
+    setShowModal(false);
+
+  };
+
   return (
     <IonPage className="job-details-page">
       <IonHeader>
@@ -147,7 +172,7 @@ const UserJobDeets: React.FC = () => {
           <div style={{ padding: '16px' }}>
             <h2 className="text">Choose which resumé to submit</h2>
             <div className="submit-button">
-              <IonButton onClick={() => setShowModal(false)} style={{ marginTop: '16px' }}>
+              <IonButton onClick={() => handleSubmit('uploaded')} style={{ marginTop: '16px' }}>
                 Submit Uploaded Resumé
               </IonButton>
             </div>
@@ -156,7 +181,7 @@ const UserJobDeets: React.FC = () => {
               dangerouslySetInnerHTML={{ __html: formatResume(tailoredResume) }}
             />
             <div className="submit-button">
-              <IonButton onClick={() => setShowModal(false)} style={{ marginTop: '16px' }}>
+              <IonButton onClick={() => handleSubmit('custom')} style={{ marginTop: '16px' }}>
                 Submit Custom Resumé
               </IonButton>
             </div>
