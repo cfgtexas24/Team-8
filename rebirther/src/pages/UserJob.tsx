@@ -22,6 +22,8 @@ const UserJob: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonTitle>Job Listings</IonTitle>
+          <IonButton className="button-color" href="/create-job"  slot="end" style={{ marginRight: '16px' }} >Create New Job Posting</IonButton>
+          <IonButton className="button-color" slot="end" style={{ marginRight: '16px' }} onClick = {handleAppliedJobsClick}>Applied Jobs </IonButton>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
@@ -40,19 +42,11 @@ const UserJob: React.FC = () => {
                 {job.about.jobDescription}
                 </IonCardContent>
                 <div className="read-more">
-                  <IonButton color="white" onClick={() => handleCardClick(job.id)}>Read More</IonButton>
+                  <IonButton className="button-color" onClick={() => handleCardClick(job.id)}>Read More</IonButton>
                 </div>
             </IonCard>
           </div>
         ))}
-        <div className="create-job">
-          <div>
-              <IonButton color="white" href="/create-job">Create New Job Posting</IonButton>
-          </div>
-          <div>
-            <IonButton className="button-color" color='white' slot="end" style={{ marginRight: '16px' }} onClick = {handleAppliedJobsClick}>Applied Jobs </IonButton>
-          </div>
-        </div>
       </IonContent>
     </IonPage>
   );
