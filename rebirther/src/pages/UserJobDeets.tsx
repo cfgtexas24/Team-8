@@ -67,8 +67,17 @@ const UserJobDeets: React.FC = () => {
             </div>
           </IonCardContent>
 
-          <div className="apply-button-container">
-            <IonButton color='white' className="apply-button" expand="block">Apply Now</IonButton>
+          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
+            <div className="apply-button-container">
+              <IonButton color="white" href="/user-job" className="apply-button" expand="block">
+                Apply Now
+              </IonButton>
+            </div>
+            <div className="apply-button-container">
+              <IonButton color="white" href="/user-job" className="apply-button" expand="block">
+                Cancel
+              </IonButton>
+            </div>
           </div>
         </IonCard>
 

@@ -25,6 +25,12 @@
   display: flex;
   justify-content: flex-end; /* Moves content to the far right */
 }
+
+.create-job {
+  position: absolute; /* Allow positioning relative to the screen */
+  top: 60px; /* Adjust vertical position as needed */
+  right: 10px; /* Align to the right edge with some padding */
+}
   
 
 @media only screen and (max-width: 600px) {
