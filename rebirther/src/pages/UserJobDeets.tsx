@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLabel, IonCard, IonButton, IonCardContent, IonCardHeader, IonModal } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLabel, IonCard, IonButton, IonCardContent, IonCardHeader, IonModal, IonAlert } from '@ionic/react';
 import { useParams } from 'react-router-dom';
 import jobsData from '../jobs.json';
 import './UserJobDeets.css';
@@ -10,17 +10,15 @@ const UserJobDeets: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [tailoredResume, setTailoredResume] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
 
   const formatResume = (resumeText: string): string => {
-    // Example: Replace line breaks with <br> and add section titles or bullet points
     return resumeText
-      .split('\n\n') // Split by double newlines into sections
-      .map((section) => `<p>${section.replace(/\n/g, '<br />')}</p>`) // Wrap each section in <p>
-      .join(''); // Combine into a single string
+      .split('\n\n')
+      .map((section) => `<p>${section.replace(/\n/g, '<br />')}</p>`)
+      .join('');
   };
-
-  console.log('Job ID:', id);
-  console.log('Job Data:', job);
 
   if (!job) {
     return (
@@ -39,11 +37,8 @@ const UserJobDeets: React.FC = () => {
     }
 
     const profile = JSON.parse(storedProfile);
-    console.log('Profile data:', profile);
-    console.log('Job description:', job.about.jobDescription);
 
     try {
-      console.log('Sending request to server...');
       const response = await fetch('http://localhost:3001/api/tailor-resume', {
         method: 'POST',
         headers: {
@@ -56,21 +51,33 @@ const UserJobDeets: React.FC = () => {
         }),
       });
 
-      console.log('Received response from server. Status:', response.status);
-
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
       }
 
       const data = await response.json();
-      console.log('Received data:', data);
       setTailoredResume(data.tailoredResume);
       setShowModal(true);
+
     } catch (error: any) {
       console.error('Caught error:', error);
       setErrorMessage(`Failed to tailor resume: ${error.message}`);
     }
+  };
+
+  const submitApplication = (resumeType: 'uploaded' | 'custom') => {
+    // Add job to applied jobs list
+    const appliedJobs = JSON.parse(localStorage.getItem('appliedJobs') || '[]');
+    if (!appliedJobs.some((appliedJob: any) => appliedJob.id === job.id)) {
+      appliedJobs.push(job);
+      localStorage.setItem('appliedJobs', JSON.stringify(appliedJobs));
+    }
+
+    // Set alert message and show alert
+    setAlertMessage(`You have successfully applied with your ${resumeType} resume!`);
+    setShowAlert(true);
+    setShowModal(false);
   };
 
   return (
@@ -142,27 +149,35 @@ const UserJobDeets: React.FC = () => {
           </div>
         )}
 
-      <IonModal isOpen={showModal} onDidDismiss={() => setShowModal(false)}>
-        <IonContent>
-          <div style={{ padding: '16px' }}>
-            <h2 className="text">Choose which resumé to submit</h2>
-            <div className="submit-button">
-              <IonButton onClick={() => setShowModal(false)} style={{ marginTop: '16px' }}>
-                Submit Uploaded Resumé
-              </IonButton>
+<IonModal isOpen={showModal} onDidDismiss={() => setShowModal(false)}>
+          <IonContent>
+            <div style={{ padding: '16px' }}>
+              <h2 className="text">Choose which resumé to submit</h2>
+              <div className="submit-button">
+                <IonButton onClick={() => submitApplication('uploaded')} style={{ marginTop: '16px' }}>
+                  Submit Uploaded Resumé
+                </IonButton>
+              </div>
+              <div 
+                className="tailored-resume" 
+                dangerouslySetInnerHTML={{ __html: formatResume(tailoredResume) }}
+              />
+              <div className="submit-button">
+                <IonButton onClick={() => submitApplication('custom')} style={{ marginTop: '16px' }}>
+                  Submit Custom Resumé
+                </IonButton>
+              </div>
             </div>
-            <div 
-              className="tailored-resume" 
-              dangerouslySetInnerHTML={{ __html: formatResume(tailoredResume) }}
-            />
-            <div className="submit-button">
-              <IonButton onClick={() => setShowModal(false)} style={{ marginTop: '16px' }}>
-                Submit Custom Resumé
-              </IonButton>
-            </div>
-          </div>
-        </IonContent>
-      </IonModal>
+          </IonContent>
+        </IonModal>
+
+        <IonAlert
+          isOpen={showAlert}
+          onDidDismiss={() => setShowAlert(false)}
+          header={'Application Submitted'}
+          message={alertMessage}
+          buttons={['OK']}
+        />
 
       </IonContent>
     </IonPage>
