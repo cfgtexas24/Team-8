@@ -114,12 +114,12 @@ const UserJobDeets: React.FC = () => {
 
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
               <div className="apply-button-container">
-                <IonButton color="white" onClick={handleApply} className="apply-button" expand="block">
+                <IonButton className="button-color" onClick={handleApply} expand="block">
                   Apply Now
                 </IonButton>
               </div>
               <div className="apply-button-container">
-                <IonButton color="white" href="/user-job" className="apply-button" expand="block">
+                <IonButton className="button-color" href="/user-job" expand="block">
                   Cancel
                 </IonButton>
               </div>
