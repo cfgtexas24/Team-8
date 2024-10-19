@@ -31,12 +31,12 @@ interface Contact {
 
 const ChatWithContacts: React.FC = () => {
   const [contacts] = useState<Contact[]>([
-    { id: 1, name: 'Apple' },
-    { id: 2, name: 'Google' },
-    { id: 3, name: 'Linkedin' },
+    { id: 1, name: 'Mentor 1' },
+    { id: 2, name: 'Chase' },
+    { id: 3, name: 'Terri Altmann' },
   ]);
   const [messages, setMessages] = useState<Message[]>([
-    { sender: 'User 1', text: 'Hey there!' },
+    { sender: 'Mentor 1', text: 'Hey there!' },
     { sender: 'Me', text: 'Hi! How are you?' },
   ]);
   const [newMessage, setNewMessage] = useState('');
