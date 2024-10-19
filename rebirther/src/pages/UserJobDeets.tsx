@@ -11,6 +11,14 @@ const UserJobDeets: React.FC = () => {
   const [tailoredResume, setTailoredResume] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
+  const formatResume = (resumeText: string): string => {
+    // Example: Replace line breaks with <br> and add section titles or bullet points
+    return resumeText
+      .split('\n\n') // Split by double newlines into sections
+      .map((section) => `<p>${section.replace(/\n/g, '<br />')}</p>`) // Wrap each section in <p>
+      .join(''); // Combine into a single string
+  };
+
   console.log('Job ID:', id);
   console.log('Job Data:', job);
 
@@ -44,6 +52,7 @@ const UserJobDeets: React.FC = () => {
         body: JSON.stringify({
           profile: profile,
           jobDescription: job.about.jobDescription,
+          customMessage: 'Please create a full resume that takes the info I provided about the candidate and the job description, taking extra care to make the resume tailored to the job description when deciding wording and what info to put.',
         }),
       });
 
@@ -133,13 +142,28 @@ const UserJobDeets: React.FC = () => {
           </div>
         )}
 
-        <IonModal isOpen={showModal} onDidDismiss={() => setShowModal(false)}>
-          <IonContent>
-            <h2>Your Tailored Resume</h2>
-            <p>{tailoredResume}</p>
-            <IonButton onClick={() => setShowModal(false)}>Close</IonButton>
-          </IonContent>
-        </IonModal>
+      <IonModal isOpen={showModal} onDidDismiss={() => setShowModal(false)}>
+        <IonContent>
+          <div style={{ padding: '16px' }}>
+            <h2 className="text">Choose which resumé to submit</h2>
+            <div className="submit-button">
+              <IonButton onClick={() => setShowModal(false)} style={{ marginTop: '16px' }}>
+                Submit Uploaded Resumé
+              </IonButton>
+            </div>
+            <div 
+              className="tailored-resume" 
+              dangerouslySetInnerHTML={{ __html: formatResume(tailoredResume) }}
+            />
+            <div className="submit-button">
+              <IonButton onClick={() => setShowModal(false)} style={{ marginTop: '16px' }}>
+                Submit Custom Resumé
+              </IonButton>
+            </div>
+          </div>
+        </IonContent>
+      </IonModal>
+
       </IonContent>
     </IonPage>
   );
