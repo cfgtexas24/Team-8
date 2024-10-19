@@ -44,6 +44,7 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import UserJobDeets from './pages/UserJobDeets';
 
 setupIonicReact();
 
@@ -64,6 +65,7 @@ const App: React.FC = () => (
           <Route exact path="/">
             <Redirect to="/Homepage" />
           </Route>
+          <Route path="/job/:id" component={UserJobDeets} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="home" href="/home">

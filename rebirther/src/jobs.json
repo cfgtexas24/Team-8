@@ -1,9 +1,164 @@
 {
   "jobs": [
-    { "company": "Google", "title": "Software Engineer Intern" },
-    { "company": "Meta", "title": "Product Manager Intern" },
-    { "company": "Amazon", "title": "Data Analyst" },
-    { "company": "Microsoft", "title": "Cloud Solutions Architect" },
-    { "company": "Zocdoc", "title": "Backend Engineer" }
+    {
+      "id": 1,
+      "company": "Google",
+      "title": "Software Engineer Intern",
+      "location": "Mountain View, CA",
+      "about": {
+        "companyOverview": "Google is a multinational technology company specializing in Internet-related services and products, including search engines, online advertising technologies, cloud computing, software, and hardware. The company is known for its innovation and commitment to sustainability.",
+        "jobDescription": "As a Software Engineer Intern at Google, you will work on high-impact projects across various teams. You'll be involved in designing, coding, testing, and deploying software solutions that could range from backend services to client-facing applications. You'll collaborate with experienced engineers to help solve complex technical challenges."
+      },
+      "benefits": [
+        "Engage in hands-on, impactful projects.",
+        "Collaborate with industry experts and mentors.",
+        "Exposure to advanced technologies and practices."
+      ],
+      "qualifications": {
+        "required": [
+          "Currently pursuing a degree in Computer Science, Engineering, or a related field.",
+          "Experience in programming languages such as Java, C++, or Python."
+        ],
+        "preferred": [
+          "Strong analytical and problem-solving skills.",
+          "Ability to work collaboratively in a team environment."
+        ]
+      },
+      "education": "Requires current enrollment in a degree program in a related field."
+    },
+    {
+      "id": 2,
+      "company": "Meta",
+      "title": "Product Manager Intern",
+      "location": "Menlo Park, CA",
+      "about": {
+        "companyOverview": "Meta is a technology company focused on connecting people and building community through social media and communication platforms. The company is committed to innovation and creating immersive experiences.",
+        "jobDescription": "As a Product Manager Intern at Meta, you will help shape the development of products that impact millions of users. You will work closely with cross-functional teams to define product roadmaps, prioritize features, and ensure successful product launches."
+      },
+      "benefits": [
+        "Hands-on experience with product development.",
+        "Networking opportunities with industry leaders.",
+        "Access to cutting-edge technology and resources."
+      ],
+      "qualifications": {
+        "required": [
+          "Currently pursuing a degree in Business, Computer Science, or a related field.",
+          "Strong interest in technology and product management."
+        ],
+        "preferred": [
+          "Excellent communication and project management skills.",
+          "Experience with data-driven decision making."
+        ]
+      },
+      "education": "Requires current enrollment in a degree program in a related field."
+    },
+    {
+      "id": 3,
+      "company": "Amazon",
+      "title": "Data Analyst",
+      "location": "Seattle, WA",
+      "about": {
+        "companyOverview": "Amazon is a multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence. The company is known for its customer-centric approach and continuous innovation.",
+        "jobDescription": "As a Data Analyst at Amazon, you will gather, analyze, and interpret data to help the business make informed decisions. Your role will involve identifying trends, building reports, and working closely with teams to optimize operational processes."
+      },
+      "benefits": [
+        "Access to large datasets and analytics tools.",
+        "Collaboration with diverse teams.",
+        "Opportunities for professional growth and development."
+      ],
+      "qualifications": {
+        "required": [
+          "Bachelor's degree in a quantitative field like Statistics, Data Science, or Economics.",
+          "Proficiency in SQL, Excel, and data visualization tools."
+        ],
+        "preferred": [
+          "Strong analytical skills and attention to detail.",
+          "Ability to communicate complex findings."
+        ]
+      },
+      "education": "Requires a bachelor's degree in a related field."
+    },
+    {
+      "id": 4,
+      "company": "Microsoft",
+      "title": "Cloud Solutions Architect",
+      "location": "Redmond, WA",
+      "about": {
+        "companyOverview": "Microsoft is a technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services. The company is recognized for its innovation in cloud computing.",
+        "jobDescription": "As a Cloud Solutions Architect at Microsoft, you will work with clients to design and implement cloud-based solutions that are scalable, reliable, and secure. You will collaborate with cross-functional teams to understand business requirements and build architectures using Microsoft Azure services."
+      },
+      "benefits": [
+        "Engagement in transformative cloud projects.",
+        "Exposure to innovative technologies and methodologies.",
+        "Access to training and development resources."
+      ],
+      "qualifications": {
+        "required": [
+          "Bachelor's degree in Computer Science, Engineering, or a related field.",
+          "Experience with cloud platforms such as Microsoft Azure."
+        ],
+        "preferred": [
+          "Strong understanding of networking and security best practices.",
+          "Ability to communicate technical concepts."
+        ]
+      },
+      "education": "Requires a bachelor's degree in a related field."
+    },
+    {
+      "id": 5,
+      "company": "Zocdoc",
+      "title": "Backend Engineer",
+      "location": "New York, NY",
+      "about": {
+        "companyOverview": "Zocdoc is a healthcare marketplace that allows patients to find and book appointments with healthcare professionals. The company is committed to enhancing the patient experience through technology.",
+        "jobDescription": "As a Backend Engineer at Zocdoc, you will be responsible for designing and developing backend systems that power the platform's core services. You will work with a team of engineers to build scalable, high-performance APIs and services."
+      },
+      "benefits": [
+        "Opportunity to work in a fast-paced, agile environment.",
+        "Collaboration with skilled professionals.",
+        "Access to resources for professional development."
+      ],
+      "qualifications": {
+        "required": [
+          "Bachelor's degree in Computer Science or a related field.",
+          "Experience with backend development using languages such as Node.js, Python, or Java."
+        ],
+        "preferred": [
+          "Strong understanding of RESTful APIs and database management.",
+          "Ability to work in a fast-paced, agile development environment."
+        ]
+      },
+      "education": "Requires a bachelor's degree in a related field."
+    },
+    {
+      "id": 6,
+      "company": "Lennox",
+      "title": "Intern",
+      "location": "Richardson, TX",
+      "about": {
+        "companyOverview": "Lennox (NYSE: LII) is an industry leader in energy-efficient climate-control solutions founded over a century ago on the principles of integrity and innovation. Dedicated to sustainability and creating comfortable, healthier environments for our residential and commercial customers while reducing their carbon footprint.",
+        "jobDescription": "As an Intern at Lennox, you will be a part of a team of innovative and knowledgeable industry professionals. You can expect to participate in impactful, developmental projects designed for your specific area of focus. This is approximately a 10 to 12-week program that will provide you with real work experiences to grow your career."
+      },
+      "benefits": [
+        "Engage in hands-on, impactful projects.",
+        "Become part of a supportive community of fellow interns.",
+        "Access to a variety of learning resources and workshops.",
+        "Receive a competitive compensation package and relocation assistance."
+      ],
+      "qualifications": {
+        "required": [
+          "Strong written and verbal communication",
+          "Proficiency in MS Office",
+          "Knowledge of principle concepts for the role."
+        ],
+        "preferred": [
+          "Pursuing a degree in a related field.",
+          "Interest or desire to lead project teams.",
+          "Well organized & detail oriented.",
+          "Ability to work independently as well as part of a team."
+        ]
+      },
+      "education": "Requires a high school diploma or an equivalent combination of education and experience."
+    }
   ]
 }
