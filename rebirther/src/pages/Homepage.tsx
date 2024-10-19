@@ -28,6 +28,7 @@ const Homepage: React.FC<HomepageProps> = ({ switchToCompany }) => {
       <IonHeader>
         <IonToolbar>
           <IonTitle className="header">Home</IonTitle>
+          <IonButton className="button-color" href="/admin-panel"  slot="end" style={{ marginRight: '16px' }} >Show Admin Panel</IonButton>
         </IonToolbar>
       </IonHeader>
 

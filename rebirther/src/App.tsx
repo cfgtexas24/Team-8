@@ -22,6 +22,8 @@ import UserJobDeets from './pages/UserJobDeets';
 import ChatComponent from './pages/Contact';
 import AppliedJobs from './pages/AppliedJobs';
 import { useState } from 'react';
+import PostedJobs from './pages/PostedJobs';
+import AdminPanel from './pages/AdminPanel';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
