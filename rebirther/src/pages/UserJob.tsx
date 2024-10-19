@@ -16,7 +16,7 @@ const UserJob: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonTitle>Job Listings</IonTitle>
-          <IonButton slot="end" style={{ marginRight: '16px' }}>Applied Jobs </IonButton>
+          <IonButton className="button-color" slot="end" style={{ marginRight: '16px' }}>Applied Jobs </IonButton>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
