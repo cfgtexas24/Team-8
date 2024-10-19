@@ -5,11 +5,11 @@ import jobsData from '../jobs.json';  // Import your JSON file
 import './UserJobDeets.css';
 
 const UserJobDeets: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const job = jobsData.jobs.find((job) => job.id === parseInt(id));
-  const [showModal, setShowModal] = useState(false);
-  const [tailoredResume, setTailoredResume] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const { id } = useParams<{ id: string }>(); // Get the job ID from the URL parameters
+  const job = jobsData.jobs.find((job) => job.id === parseInt(id)); // Find the job by ID
+
+  console.log('Job ID:', id);
+  console.log('Job Data:', job);
 
   if (!job) {
     return (
@@ -18,53 +18,6 @@ const UserJobDeets: React.FC = () => {
       </IonContent>
     );
   }
-
-  const handleApply = async () => {
-    setErrorMessage('');
-    const storedProfile = localStorage.getItem('userProfile');
-    if (!storedProfile) {
-      setErrorMessage('Please complete your profile on the Profile page first.');
-      return;
-    }
-
-    const profile = JSON.parse(storedProfile);
-    console.log('Profile data:', profile);
-    console.log('Job description:', job.about.jobDescription);
-
-    try {
-      console.log('Sending request to server...');
-      const response = await fetch('http://localhost:3001/api/tailor-resume', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          profile: profile,
-          jobDescription: job.about.jobDescription,
-        }),
-      });
-
-      console.log('Received response from server. Status:', response.status);
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.log('Error data:', errorData);
-        throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      console.log('Received data:', data);
-      setTailoredResume(data.tailoredResume);
-      setShowModal(true);
-    } catch (error: unknown) {
-      console.error('Caught error:', error);
-      if (error instanceof Error) {
-        setErrorMessage(`Failed to tailor resume: ${error.message}`);
-      } else {
-        setErrorMessage('Failed to tailor resume: An unknown error occurred');
-      }
-    }
-  };
 
   return (
     <IonPage className="job-details-page">
@@ -162,7 +115,8 @@ export default UserJobDeets;
               ))}
             </ul>
             <div className="apply-button-container">
-              <IonButton size="small" className="apply-button" onClick={handleApply}>
+              <IonButton size="small" className="apply-button">
                 Apply Now
               </IonButton>
             </div>
+          </IonCardContent> */}
