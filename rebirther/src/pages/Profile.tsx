@@ -76,7 +76,7 @@ const Profile: React.FC = () => {
             <input className="custom-font" type="file"></input>
           </IonItem>
         </IonCard>
-        <IonButton className="button">Save Information</IonButton>
+        <IonButton href="/profile">Save Information</IonButton>
       </IonContent>
     </IonPage>
   );

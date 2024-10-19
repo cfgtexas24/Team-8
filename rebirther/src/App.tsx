@@ -14,6 +14,7 @@ import { ellipse, square, triangle } from 'ionicons/icons';
 import Homepage from './pages/Homepage';
 import UserJob from './pages/UserJob';
 import Profile from './pages/Profile';
+import ProfileDisplay from './pages/ProfileDisplay';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -44,6 +45,9 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import UserJobDeets from './pages/UserJobDeets';
+import ChatComponent from './pages/Contact';
+import AppliedJobs from './pages/AppliedJobs';
 
 setupIonicReact();
 
@@ -59,11 +63,21 @@ const App: React.FC = () => (
             <UserJob />
           </Route>
           <Route path="/profile">
+            <ProfileDisplay />
+          </Route>
+          <Route path="/profile-edit">
             <Profile />
+          </Route>
+          <Route path="/Contact" component={ChatComponent}>
+          
           </Route>
           <Route exact path="/">
             <Redirect to="/Homepage" />
           </Route>
+          <Route exact path="/AppliedJobs">
+          <AppliedJobs />
+          </Route>
+          <Route path="/job/:id" component={UserJobDeets} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="home" href="/home">

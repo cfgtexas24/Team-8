@@ -1,0 +1,72 @@
+ion-content {
+    --background: #ffffff;
+}
+
+ion-header,
+ion-footer {
+  --background: #ffffff; /* White background for header and footer */
+  color: #000000; /* Optional: Set text color to black for visibility */
+  border: none; /* Optional: Remove default border/shadow */
+}
+
+.button-container {
+    position: fixed; /* Keeps it in place even on scroll */
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Ensure it's at the highest z-level */
+}
+
+.comment {
+    padding-left: 5%;
+}
+  
+.create-post {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+}
+
+.description {
+    color: black;
+    padding-left: 5%;
+}
+
+.head {
+    color: white;
+}
+
+.header {
+    color: white;
+}
+
+.header-container {
+    display: flex;
+}
+
+.make-post {
+    padding-left: 5%;
+}
+
+.post {
+    background-color: white;
+    width: 50%;
+    margin: auto;
+    margin-top: 1%;
+    border-radius: 10px;
+}
+
+.post-header {
+    padding-left: 5%;
+}
+
+.title {
+    color: black;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .post {
+        width: 90%;
+    }
+  }
