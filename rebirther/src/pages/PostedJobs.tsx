@@ -10,9 +10,7 @@ const PostedJobs: React.FC = () => {
         <IonHeader>
         <IonToolbar>
           <IonTitle>Job Listings</IonTitle>
-          <IonButton className="button-color" href="/posted-jobs"  slot="end" style={{ marginRight: '16px' }} >Show Posted Jobs</IonButton>
           <IonButton className="button-color" href="/create-job"  slot="end" style={{ marginRight: '16px' }} >Create New Job Posting</IonButton>
-          <IonButton className="button-color" slot="end" style={{ marginRight: '16px' }}>Applied Jobs </IonButton>
         </IonToolbar>
       </IonHeader>
         <IonContent fullscreen>
