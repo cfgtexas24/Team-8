@@ -15,6 +15,7 @@ import Homepage from './pages/Homepage';
 import UserJob from './pages/UserJob';
 import Profile from './pages/Profile';
 import ProfileDisplay from './pages/ProfileDisplay';
+import JobCreate from './pages/JobCreate';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -68,8 +69,10 @@ const App: React.FC = () => (
           <Route path="/profile-edit">
             <Profile />
           </Route>
+          <Route path="/create-job">
+            <JobCreate />
+          </Route>
           <Route path="/Contact" component={ChatComponent}>
-          
           </Route>
           <Route exact path="/">
             <Redirect to="/Homepage" />

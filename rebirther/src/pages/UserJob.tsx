@@ -22,7 +22,6 @@ const UserJob: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonTitle>Job Listings</IonTitle>
-          <IonButton slot="end" style={{ marginRight: '16px' }} onClick = {handleAppliedJobsClick}>Applied Jobs </IonButton>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
@@ -46,6 +45,14 @@ const UserJob: React.FC = () => {
             </IonCard>
           </div>
         ))}
+        <div className="create-job">
+          <div>
+              <IonButton color="white" href="/create-job">Create New Job Posting</IonButton>
+          </div>
+          <div>
+            <IonButton color='white' slot="end" style={{ marginRight: '16px' }} onClick = {handleAppliedJobsClick}>Applied Jobs </IonButton>
+          </div>
+        </div>
       </IonContent>
     </IonPage>
   );
