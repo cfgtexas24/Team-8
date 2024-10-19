@@ -1,0 +1,94 @@
+.applicant {
+    width: 100%;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column; /* Stack card content vertically */
+  }
+
+.applicant-details-content {
+    display: flex;
+    flex-direction: column; /* Stack sections vertically */
+    background-color: #f9f9f9;
+  }
+
+.job-details-content {
+    display: flex;
+    flex-direction: column; /* Stack sections vertically */
+    gap: 15px; /* Add spacing between sections */
+    background-color: #f9f9f9;
+  }
+  
+  .section {
+    display: flex;
+    flex-direction: column; /* Ensure title and text are stacked */
+    margin-bottom: 10px;
+  }
+  
+  .section-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .job-info {
+    width: 50%;
+    max-width: 600px;
+    margin: 20px auto; /* Center card horizontally */
+    border: 2px solid #3880ff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column; /* Stack card content vertically */
+    justify-content: space-between;
+    min-height: 400px;
+  }
+  
+  .jobs {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .job-info {
+        width: 90%;
+    }
+  }
+  
+  .text {
+    color: black;
+  }
+  
+  .tailored-resume {
+    color: black;
+  }
+  
+  .submit-resume {
+    border-radius: 30px;
+  }
+  
+  .submit-button{
+    color: black;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Full height of the modal */
+    padding: 16px;
+    box-sizing: border-box;
+  }
+
+  .single-app {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
