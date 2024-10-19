@@ -1,23 +1,59 @@
-.job-details-card {
-    margin: 16px;
-    max-width: 100%;
-    width: calc(100% - 32px);
-    background-color: #f9f9f9; 
-  }
-  
-  .job-details-content {
-    padding: 30px;
-    background-color: #f9f9f9; 
+.job-details-content {
+  display: flex;
+  flex-direction: column; /* Stack sections vertically */
+  gap: 15px; /* Add spacing between sections */
+  padding: 30px;
+  background-color: #f9f9f9;
+}
 
+.section {
+  display: flex;
+  flex-direction: column; /* Ensure title and text are stacked */
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.apply-button-container {
+  display: flex;
+  justify-content: flex-start; /* Align to bottom left */
+  padding: 10px 30px;
+  margin-top: auto; /* Ensure the button stays at the bottom */
+}
+
+.apply-button {
+  --padding-start: 20px;
+  --padding-end: 20px;
+  border-radius: 5px;
+}
+
+.job-info {
+  width: 50%;
+  max-width: 600px;
+  margin: 20px auto; /* Center card horizontally */
+  border: 2px solid #3880ff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  color: #333;
+  display: flex;
+  flex-direction: column; /* Stack card content vertically */
+  justify-content: space-between;
+  min-height: 400px;
+}
+
+.jobs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow multiple cards to wrap */
+  gap: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .job-info {
+      width: 90%;
   }
-  
-  .apply-button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .apply-button {
-    --padding-start: 20px;
-    --padding-end: 20px;
-  }
+}
