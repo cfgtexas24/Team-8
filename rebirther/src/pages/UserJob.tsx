@@ -11,12 +11,16 @@ const UserJob: React.FC = () => {
     history.push(`/job/${jobId}`); // Navigate to job details page
   };
 
+  const handleAppliedJobsClick = () => {
+    history.push('/AppliedJobs'); // Navigate to applied jobs page (adjust the route as needed)
+  };
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonTitle>Job Listings</IonTitle>
-          <IonButton slot="end" style={{ marginRight: '16px' }}>Applied Jobs </IonButton>
+          <IonButton slot="end" style={{ marginRight: '16px' }} onClick = {handleAppliedJobsClick}>Applied Jobs </IonButton>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
