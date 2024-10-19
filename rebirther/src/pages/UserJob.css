@@ -18,11 +18,17 @@
 }
 
 .title {
-  margin-left: -4%;
+  margin-left: -1%;
 }
 
 .read-more {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* Moves content to the far right */
 }
   
+
+@media only screen and (max-width: 600px) {
+  .job-card {
+      width: 90%;
+  }
+}

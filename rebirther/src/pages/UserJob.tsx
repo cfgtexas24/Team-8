@@ -3,6 +3,7 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem,
 import { Link } from 'react-router-dom';
 import jobsData from '../jobs.json'; // Import your JSON file
 import { useHistory } from 'react-router-dom';
+import './UserJob.css';
 
 const UserJob: React.FC = () => {
   const history = useHistory(); // useHistory hook for navigation
@@ -33,7 +34,7 @@ const UserJob: React.FC = () => {
               key={job.id}  // Add onClick handler
             >
               
-              <IonCardHeader className="post-header">
+              <IonCardHeader>
                 <IonTitle className="title">{job.title} at {job.company}</IonTitle>
                 </IonCardHeader>
                 <IonCardContent className="description">
