@@ -1,15 +1,14 @@
-import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLabel, IonCard, IonButton, IonCardContent } from '@ionic/react';
+import React, { useState } from 'react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLabel, IonCard, IonButton, IonCardContent, IonCardHeader } from '@ionic/react';
 import { useParams } from 'react-router-dom'; // Import useParams to get route parameters
 import jobsData from '../jobs.json';  // Import your JSON file
 import './UserJob.css';
 
 const UserJobDeets: React.FC = () => {
-  const { id } = useParams<{ id: string }>(); // Get the job ID from the URL parameters
-  const job = jobsData.jobs.find((job) => job.id === parseInt(id)); // Find the job by ID
-
-  console.log('Job ID:', id);
-  console.log('Job Data:', job);
+  const { id } = useParams<{ id: string }>();
+  const job = jobsData.jobs.find((job) => job.id === parseInt(id));
+  const [showModal, setShowModal] = useState(false);
+  const [tailoredResume, setTailoredResume] = useState('');
 
   if (!job) {
     return (
@@ -18,6 +17,38 @@ const UserJobDeets: React.FC = () => {
       </IonContent>
     );
   }
+
+  const handleApply = async () => {
+    const storedResume = localStorage.getItem('userResume');
+    if (!storedResume) {
+      alert('Please upload your resume in the Profile page first.');
+      return;
+    }
+
+    try {
+      const response = await fetch('YOUR_API_ENDPOINT', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          resume: storedResume,
+          jobDescription: job.about.jobDescription,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to tailor resume');
+      }
+
+      const data = await response.json();
+      setTailoredResume(data.tailoredResume);
+      setShowModal(true);
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to tailor resume. Please try again.');
+    }
+  };
 
   return (
     <IonPage className="job-details-page">
@@ -59,6 +90,53 @@ const UserJobDeets: React.FC = () => {
             </div>
           </IonCardContent>
         </IonCard>
+        <div className="jobs">
+        <IonCard className="job-info" key={job.id}>
+          <IonCardHeader className="post-header">
+            <IonTitle className="title">
+              {job.title} at {job.company}
+            </IonTitle>
+          </IonCardHeader>
+
+          <IonCardContent className="job-details-content">
+            <div className="section">
+              <h2 className="section-title">Company Overview</h2>
+              <p>{job.about.companyOverview}</p>
+            </div>
+
+            <div className="section">
+              <h2 className="section-title">Job Description</h2>
+              <p>{job.about.jobDescription}</p>
+            </div>
+
+            <div className="section">
+              <h2 className="section-title">Benefits</h2>
+              <p>{job.benefits}</p>
+            </div>
+
+            <div className="section">
+              <h2 className="section-title">Required Qualifications</h2>
+              <p>{job.qualifications.required}</p>
+            </div>
+
+            <div className="section">
+              <h2 className="section-title">Preferred Qualifications</h2>
+              <p>{job.qualifications.preferred}</p>
+            </div>
+
+            <div className="section">
+              <h2 className="section-title">Education</h2>
+              <p>{job.education}</p>
+            </div>
+          </IonCardContent>
+
+          <div className="apply-button-container">
+            <IonButton color='white' className="apply-button" expand="block">Apply Now</IonButton>
+          </div>
+        </IonCard>
+
+
+        </div>
       </IonContent>
     </IonPage>
   );
