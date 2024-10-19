@@ -1,0 +1,73 @@
+ion-content {
+    --background: #ffffff;
+}
+
+.ProfileDisplay {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+}
+.group{
+    margin-bottom: 15px;
+}
+
+.profile-container {
+    width: 40%;
+    margin: auto;
+    margin-top: 1%;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+
+.photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 15%;
+}
+
+.description {
+    display: flex;
+    color: black;
+}
+
+.field {
+    background-color: lightgray;
+}
+
+.profile-photo {
+    transform: scale(2);
+}
+
+.right-field {
+    width: 300px;
+    border-radius: 10px;
+}
+
+.main-field {
+    width: 50%;
+    border-radius: 10px;
+}
+
+.fields-container {
+    width: 80%;
+    margin: auto;
+    margin-top: 1%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit {
+    position: absolute; /* Allow positioning relative to the screen */
+    top: 60px; /* Adjust vertical position as needed */
+    right: 10px; /* Align to the right edge with some padding */
+  }

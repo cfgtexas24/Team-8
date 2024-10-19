@@ -32,7 +32,7 @@ const Profile: React.FC = () => {
             <input type="file"></input>
           </IonItem>
         </IonCard>
-        <IonButton>Save Information</IonButton>
+        <IonButton href="/profile">Save Information</IonButton>
       </IonContent>
     </IonPage>
   );

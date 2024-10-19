@@ -14,6 +14,7 @@ import { ellipse, square, triangle } from 'ionicons/icons';
 import Homepage from './pages/Homepage';
 import UserJob from './pages/UserJob';
 import Profile from './pages/Profile';
+import ProfileDisplay from './pages/ProfileDisplay';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -60,6 +61,9 @@ const App: React.FC = () => (
             <UserJob />
           </Route>
           <Route path="/profile">
+            <ProfileDisplay />
+          </Route>
+          <Route path="/profile-edit">
             <Profile />
           </Route>
           <Route exact path="/">
