@@ -42,6 +42,7 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import CompanyProfileDisplay from './pages/CompanyProfileDisplay';
 
 setupIonicReact();
 
@@ -65,7 +66,8 @@ const App: React.FC = () => {
             {isCompanyView ? (
               <>
                 {/* Company-Specific Routes */}
-                <Route exact path="/company-profile" component={CompanyProfile} />
+                
+                <Route exact path="/company-profile" component={CompanyProfileDisplay} />
                 <Route exact path="/home" component={Homepage} />
               </>
             ) : (
@@ -81,6 +83,7 @@ const App: React.FC = () => {
                 <Route exact path="/AppliedJobs" component={AppliedJobs}/>
               </>
             )}
+            <Route exact path="/company-profile-edit" component={CompanyProfile} />
           </IonRouterOutlet>
 {/*company view*/}
           <IonTabBar slot="bottom">
