@@ -41,7 +41,7 @@ const UserJob: React.FC = () => {
                 {job.about.jobDescription}
                 </IonCardContent>
                 <div className="read-more">
-                  <IonButton onClick={() => handleCardClick(job.id)}>Read More</IonButton>
+                  <IonButton color="white" onClick={() => handleCardClick(job.id)}>Read More</IonButton>
                 </div>
             </IonCard>
           </div>

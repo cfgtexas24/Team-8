@@ -13,7 +13,7 @@ const ProfileDisplay: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen>
         <div className="edit">
-            <IonButton href="/profile-edit">Edit</IonButton>
+            <IonButton color="white" href="/profile-edit">Edit</IonButton>
         </div>
         <div className="profile-container">
             <div className="photo-container">
