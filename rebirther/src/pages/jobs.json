@@ -1,0 +1,44 @@
+{
+    "jobs": [
+      {
+        "company": "Google",
+        "title": "Software Engineer Intern"
+      },
+      {
+        "company": "Meta",
+        "title": "Product Manager Intern"
+      },
+      {
+        "company": "Amazon",
+        "title": "Data Analyst"
+      },
+      {
+        "company": "Microsoft",
+        "title": "Cloud Solutions Architect"
+      },
+      {
+        "company": "Zocdoc",
+        "title": "Backend Engineer"
+      },
+      {
+        "company": "State Farm",
+        "title": "Software Developer Intern"
+      },
+      {
+        "company": "Tesla",
+        "title": "Mechanical Engineer Intern"
+      },
+      {
+        "company": "Netflix",
+        "title": "UI/UX Designer"
+      },
+      {
+        "company": "Salesforce",
+        "title": "Sales Engineer"
+      },
+      {
+        "company": "Spotify",
+        "title": "DevOps Engineer"
+      }
+    ]
+  }
