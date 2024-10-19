@@ -2,10 +2,12 @@
     margin: 16px;
     max-width: 100%;
     width: calc(100% - 32px);
+    background-color: #f9f9f9; 
   }
   
   .job-details-content {
     padding: 30px;
+    background-color: #f9f9f9; 
 
   }
   

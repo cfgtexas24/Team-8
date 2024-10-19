@@ -46,6 +46,8 @@ import '@ionic/react/css/palettes/dark.system.css';
 /* Theme variables */
 import './theme/variables.css';
 import UserJobDeets from './pages/UserJobDeets';
+import ChatComponent from './pages/Contact';
+import AppliedJobs from './pages/AppliedJobs';
 
 setupIonicReact();
 
@@ -66,8 +68,14 @@ const App: React.FC = () => (
           <Route path="/profile-edit">
             <Profile />
           </Route>
+          <Route path="/Contact" component={ChatComponent}>
+          
+          </Route>
           <Route exact path="/">
             <Redirect to="/Homepage" />
+          </Route>
+          <Route exact path="/AppliedJobs">
+          <AppliedJobs />
           </Route>
           <Route path="/job/:id" component={UserJobDeets} />
         </IonRouterOutlet>
