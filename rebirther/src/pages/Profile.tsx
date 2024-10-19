@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonInput, IonItem, IonCard, IonText } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Profile.css';
 
@@ -11,12 +11,28 @@ const Profile: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Profile</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name="Profile page" />
+        <IonCard className="First">
+        <IonInput>First Name:</IonInput>
+        </IonCard>
+        <IonCard className="Last">
+        <IonInput>Last Name:</IonInput>
+        </IonCard>
+        <IonCard className="Skills">
+        <IonInput>Add Your Skills:</IonInput>
+        </IonCard>
+        <IonCard className="Age">
+        <IonInput>Age:</IonInput>
+        </IonCard>
+        <IonCard className="Experience">
+        <IonInput>Add your Current Experiences:</IonInput>
+        </IonCard>
+        <IonCard>
+          <IonItem>
+            <IonText>Please Upload Resume</IonText>
+            <input type="file"></input>
+          </IonItem>
+        </IonCard>
+        <IonButton>Save Information</IonButton>
       </IonContent>
     </IonPage>
   );
