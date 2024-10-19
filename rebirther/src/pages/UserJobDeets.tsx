@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLabel, IonCard, IonButton, IonCardContent, IonCardHeader } from '@ionic/react';
-import { useParams } from 'react-router-dom'; // Import useParams to get route parameters
-import jobsData from '../jobs.json';  // Import your JSON file
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonButton, IonCardContent } from '@ionic/react';
+import { useParams } from 'react-router-dom';
+import jobsData from '../jobs.json';
 import './UserJob.css';
 
 const UserJobDeets: React.FC = () => {
@@ -9,6 +9,7 @@ const UserJobDeets: React.FC = () => {
   const job = jobsData.jobs.find((job) => job.id === parseInt(id));
   const [showModal, setShowModal] = useState(false);
   const [tailoredResume, setTailoredResume] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   if (!job) {
     return (
@@ -19,34 +20,49 @@ const UserJobDeets: React.FC = () => {
   }
 
   const handleApply = async () => {
-    const storedResume = localStorage.getItem('userResume');
-    if (!storedResume) {
-      alert('Please upload your resume in the Profile page first.');
+    setErrorMessage('');
+    const storedProfile = localStorage.getItem('userProfile');
+    if (!storedProfile) {
+      setErrorMessage('Please complete your profile on the Profile page first.');
       return;
     }
 
+    const profile = JSON.parse(storedProfile);
+    console.log('Profile data:', profile);
+    console.log('Job description:', job.about.jobDescription);
+
     try {
-      const response = await fetch('YOUR_API_ENDPOINT', {
+      console.log('Sending request to server...');
+      const response = await fetch('http://localhost:3001/api/tailor-resume', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          resume: storedResume,
+          profile: profile,
           jobDescription: job.about.jobDescription,
         }),
       });
 
+      console.log('Received response from server. Status:', response.status);
+
       if (!response.ok) {
-        throw new Error('Failed to tailor resume');
+        const errorData = await response.json();
+        console.log('Error data:', errorData);
+        throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
       }
 
       const data = await response.json();
+      console.log('Received data:', data);
       setTailoredResume(data.tailoredResume);
       setShowModal(true);
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Failed to tailor resume. Please try again.');
+    } catch (error: unknown) {
+      console.error('Caught error:', error);
+      if (error instanceof Error) {
+        setErrorMessage(`Failed to tailor resume: ${error.message}`);
+      } else {
+        setErrorMessage('Failed to tailor resume: An unknown error occurred');
+      }
     }
   };
 
@@ -84,61 +100,22 @@ const UserJobDeets: React.FC = () => {
               ))}
             </ul>
             <div className="apply-button-container">
-              <IonButton size="small" className="apply-button">
+              <IonButton size="small" className="apply-button" onClick={handleApply}>
                 Apply Now
               </IonButton>
             </div>
-          </IonCardContent>
+
+            {showModal && (
+              <div>
+                <h3>Your Tailored Resume:</h3>
+                <p>{tailoredResume}</p>
+              </div>
+            )}
+           </IonCardContent>
         </IonCard>
-        <div className="jobs">
-        <IonCard className="job-info" key={job.id}>
-          <IonCardHeader className="post-header">
-            <IonTitle className="title">
-              {job.title} at {job.company}
-            </IonTitle>
-          </IonCardHeader>
-
-          <IonCardContent className="job-details-content">
-            <div className="section">
-              <h2 className="section-title">Company Overview</h2>
-              <p>{job.about.companyOverview}</p>
-            </div>
-
-            <div className="section">
-              <h2 className="section-title">Job Description</h2>
-              <p>{job.about.jobDescription}</p>
-            </div>
-
-            <div className="section">
-              <h2 className="section-title">Benefits</h2>
-              <p>{job.benefits}</p>
-            </div>
-
-            <div className="section">
-              <h2 className="section-title">Required Qualifications</h2>
-              <p>{job.qualifications.required}</p>
-            </div>
-
-            <div className="section">
-              <h2 className="section-title">Preferred Qualifications</h2>
-              <p>{job.qualifications.preferred}</p>
-            </div>
-
-            <div className="section">
-              <h2 className="section-title">Education</h2>
-              <p>{job.education}</p>
-            </div>
-          </IonCardContent>
-
-          <div className="apply-button-container">
-            <IonButton color='white' className="apply-button" expand="block">Apply Now</IonButton>
-          </div>
-        </IonCard>
-
-
-        </div>
       </IonContent>
     </IonPage>
   );
 };
+
 export default UserJobDeets;
