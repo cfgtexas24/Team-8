@@ -1,0 +1,21 @@
+.job-details-card {
+    margin: 16px;
+    max-width: 100%;
+    width: calc(100% - 32px);
+  }
+  
+  .job-details-content {
+    padding: 30px;
+
+  }
+  
+  .apply-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .apply-button {
+    --padding-start: 20px;
+    --padding-end: 20px;
+  }
