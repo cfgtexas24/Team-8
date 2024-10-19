@@ -19,7 +19,7 @@ app.post('/api/tailor-resume', async (req, res) => {
     const { firstName, lastName, age, phoneNumber, skills, experiences, certifications } = profile;
 
     // Prepare the message for GPT
-    const message = `Create a tailored professional resume for the following person, focusing on their relevance to the provided job description:
+    const message = `Create a tailored professional resume for the following person, that can pass ATS for the job description based on the information in their current resume'
     
     Name: ${firstName} ${lastName}
     Age: ${age}
